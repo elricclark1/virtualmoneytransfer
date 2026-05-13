@@ -1,0 +1,24 @@
+# Project: Serpilas Virtual Money Transfer
+
+## Core Technologies
+- **GUI:** Kivy (Python)
+- **Web Server:** Flask (Python)
+- **Database:** SQLite (via SQLAlchemy)
+- **Packaging:** Buildozer (Android)
+
+## Architecture
+- **Hybrid Application:** The app runs a Kivy GUI (`main.py`) which spawns a Flask server (`app.py`) in a background thread.
+- **Entry Point:** `main.py` is the main entry point. It initializes the Kivy App (`MoneyTransferApp`) and the `ServerThread`.
+- **Data Model:** Defined in `app.py` (`User`, `Transaction`, `SystemSetting`).
+
+## Development Guidelines
+- **UI Logic:** Kivy UI code resides in `main.py`. Keep the UI simple and responsive.
+- **Business Logic:** Core logic and web routes reside in `app.py`.
+- **Database:** Changes to the schema require manual migration handling (no Alembic set up currently).
+- **Cross-Platform:** Code must be compatible with both Linux (desktop) and Android.
+  - Use `os.environ` checks or platform detection for file paths (e.g., `ANDROID_PRIVATE`).
+- **Dependencies:** Keep `requirements.txt` and `buildozer.spec` in sync.
+
+## Specific Constraints
+- **Threading:** Flask runs in a daemon thread. Ensure thread safety when Kivy interacts with Flask (though they mostly operate independently via localhost networking).
+- **Network:** The Kivy app displays the server's IP (local Wi-Fi IP) so other devices can connect.

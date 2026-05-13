@@ -1,0 +1,8 @@
+Flask
+Flask-SQLAlchemy
+sqlalchemy
+qrcode
+pillow
+greenlet>=2.0.0
+typing_extensions
+kivy

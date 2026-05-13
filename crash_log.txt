@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/elric/Nextcloud/Github programs/virtualmoneytransfer/main.py", line 36, in <module>
+    from app import app, get_local_ip, init_db
+  File "/home/elric/Nextcloud/Github programs/virtualmoneytransfer/app.py", line 1042
+    HELP_MODAL_FRAGMENT = \"\"\"
+                           ^
+SyntaxError: unexpected character after line continuation character
